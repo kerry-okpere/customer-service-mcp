@@ -1,0 +1,20 @@
+{
+  "assignments": [
+    {
+      "id": "assign_001",
+      "customer_id": "cust_001",
+      "agent_id": "agent_001",
+      "assigned_at": "2025-03-12T09:14:00Z",
+      "reason": "Platinum tier customer with fulfillment issue. Sarah Chen selected: highest rating (4.9), fulfillment specialization overlap, lowest current load among top agents.",
+      "score_breakdown": {
+        "agent_rating_score": 49,
+        "specialization_match_score": 30,
+        "availability_score": 20,
+        "tier_clearance_score": 10,
+        "total": 109
+      },
+      "status": "active",
+      "resolved_at": null
+    }
+  ]
+}
