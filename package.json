@@ -1,0 +1,38 @@
+{
+  "name": "customer-service-mcp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc && shx chmod +x build/*.js",
+    "watch": "tsc --watch",
+    "start": "node build/index.js",
+    "prepare": "pnpm run build",
+    "dev:mcp:inspector": "npx @modelcontextprotocol/inspector http://localhost:3002/mcp",
+    "dev": "npx concurrently \"npm run watch\" \"nodemon --watch build build/index.js\""
+  },
+  "type": "module",
+  "files": [
+    "build"
+  ],
+  "bin": {
+    "customer-service-mcp": "./build/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.27.1",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.4.0",
+    "typescript": "^5.9.3"
+  }
+}
