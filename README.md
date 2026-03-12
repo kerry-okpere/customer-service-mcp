@@ -2,6 +2,9 @@
 
 A Model Context Protocol (MCP) server that exposes tools for AI assistants (e.g. VS Code Copilot, Claude Desktop). Built with Node.js + Express.
 
+>This repository is for the MCP workshop at AI-Assisted codable meetup March 2026.
+TO see the final MCP solution check out the [feat/Final](https://github.com/kerry-okpere/customer-service-mcp/tree/feat/final) branch
+
 ---
 
 ## Prerequisites
@@ -29,12 +32,15 @@ npm -v    # should print a version number
 ## Setup
 
 ```bash
-# 1. Clone the repo
-git clone <repo-url>
+# 1. Clone the starter branch 
+git clone git@github.com:kerry-okpere/customer-service-mcp.git
 cd customer-service-mcp
 
 # 2. Install dependencies
 npm install
+
+# 3. Optionally Checkout to the final branch to view all changes
+git checkout feat/final
 ```
 
 ---
