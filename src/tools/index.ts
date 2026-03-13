@@ -14,6 +14,7 @@ import {
 //   3. Returns { content: [...blocks] }
 // ═════════════════════════════════════════════════════════════════════════════
 
+// Implement get_vip_customers resource callback
 
 export const greeting: ToolCallback<typeof GreetInput> = async ({ name }) => {
   return {

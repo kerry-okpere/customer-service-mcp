@@ -8,6 +8,7 @@ import { getAgentRoster } from "../lambdas.js";
 // Think of them as "documents" the model can reference.
 // ═════════════════════════════════════════════════════════════════════════════
 
+// Implement support://agents/roster resource callback
 export const agentRoster: ReadResourceCallback = async () => {
   const roster = getAgentRoster();
 

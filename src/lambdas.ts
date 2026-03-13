@@ -11,7 +11,7 @@ import { Agent, Agents } from "./model/agents/type.js";
 import { Assignment, Assignments } from "./model/assignments/type.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const dataDir = join(__dirname, "src", "model");
+const dataDir = join(__dirname, "..", "src", "model");
 
 // ─── Data helpers ────────────────────────────────────────────────────────────
 
