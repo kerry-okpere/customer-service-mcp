@@ -122,3 +122,59 @@ src/
   utils/
     index.ts        # Shared Express helpers
 ```
+
+---
+
+## Test greet tool with prompt
+using the greeting tool to answer this request.
+
+Call the greeting tool with the name "Kerry" and return its response exactly as provided by the tool.
+
+Do not generate your own greeting. Only use the greeting tool.
+
+
+## 🔧 Tools
+`get_available_agents` — no arguments, good first test
+```
+Who are the available support agents right now? List their ratings, specializations, and how many slots they have open.
+```
+`get_vip_customers` — tests argument passing
+```
+Show me the top 3 VIP customers who currently have open support tickets, ranked by their lifetime spend.
+```
+`assign_agent_to_customer` — the stateful tool, run after the two above
+```
+Assign the best available agent to customer cust_001. Show me the score breakdown and explain why that agent was chosen over the others.
+```
+`get_agent_performance_card` — the image moment, run this last
+
+`Show me the performance card for agent_001.`
+
+## 📖 Resource
+`support://agents/roster` — tests that the model reads context before acting
+
+```
+Before recommending any assignments, read the agent roster first. Then tell me which agents are at risk of being overloaded and which ones have the most capacity right now.
+```
+
+## 💬 Prompts
+`daily_briefing` — no arguments
+```
+Run the daily briefing.
+```
+`assign_best_agent` — with argument
+```
+Run assign_best_agent for the top 3 VIP customers.
+```
+`explain_assignment` — run this after assign_agent_to_customer has fired
+```
+Run explain_assignment for agent Sarah Chen and customer Priya Kapoor.
+```
+
+## 🎯 Demo Sequence (paste these in order)
+If you want one clean run that hits every primitive in the right order for an audience:
+1. Run the daily briefing.
+2. Show me the top 3 VIP customers with open tickets.
+3. Assign the best available agent to cust_001, then to cust_002.
+4. Show me the performance card for whoever was assigned to Priya Kapoor.
+5. Now explain why that agent was chosen over the others.
