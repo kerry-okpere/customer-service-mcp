@@ -1,14 +1,30 @@
-import {
-  ReadResourceCallback,
-} from "@modelcontextprotocol/sdk/server/mcp.js";
+import { ReadResourceCallback } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { getAgentRoster } from "../lambdas.js";
 
-export const Resources: ReadResourceCallback = async () => {
+// ═════════════════════════════════════════════════════════════════════════════
+// RESOURCE
+// Resources provide ambient context the model can read at any time.
+// They return a single { uri, mimeType, text } — not a list of content blocks.
+// Think of them as "documents" the model can reference.
+// ═════════════════════════════════════════════════════════════════════════════
+
+export const agentRoster: ReadResourceCallback = async () => {
+  const roster = getAgentRoster();
+
+  // ── Resource response: uri + mimeType + text ──
+  // The text is designed to be embedded directly into a prompt as context.
   return {
     contents: [
       {
-        type: "text",
-        uri: "urn:example:welcome-prompt",
-        text: "Welcome to the customer service MCP example! This prompt serves as a basic introduction to the capabilities of the MCP server. You can use this prompt to test your tools and see how they interact with the model. Feel free to customize this prompt with additional information or instructions for your specific use case.",
+        uri: roster.uri,
+        mimeType: "text/plain",
+        text: [
+          `LIVE AGENT ROSTER`,
+          `Generated : ${roster.generated_at}`,
+          `Total     : ${roster.total_agents} agents  |  Available: ${roster.available_count}`,
+          ``,
+          roster.text,
+        ].join("\n"),
       },
     ],
   };
