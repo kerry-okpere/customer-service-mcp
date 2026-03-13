@@ -2,6 +2,8 @@ import {
   ReadResourceCallback,
 } from "@modelcontextprotocol/sdk/server/mcp.js";
 
+// Implement support://agents/roster resource callback
+
 export const Resources: ReadResourceCallback = async () => {
   return {
     contents: [

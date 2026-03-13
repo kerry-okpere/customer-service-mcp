@@ -2,6 +2,8 @@ import {
   PromptCallback,
 } from "@modelcontextprotocol/sdk/server/mcp.js";
 
+// Implement daily_briefing prompt callback
+
 export const getBasicPrompt: PromptCallback = async () => {
   return {
     messages: [
