@@ -2,29 +2,23 @@
 
 A Model Context Protocol (MCP) server that exposes tools for AI assistants (e.g. VS Code Copilot, Claude Desktop). Built with Node.js + Express.
 
->This repository is for the MCP workshop at AI-Assisted codable meetup March 2026.
-TO see the final MCP solution check out the [feat/Final](https://github.com/kerry-okpere/customer-service-mcp/tree/feat/final) branch
+> This repository is for the MCP workshop at AI-Assisted Codable meetup March 2026.  
+> To see the final MCP solution check out the [feat/final](https://github.com/kerry-okpere/customer-service-mcp/tree/feat/final) branch.
 
 ---
 
 ## Prerequisites
 
-You need **Node.js** installed. That's it.
+**1. Install Node.js** (pick one)
 
-### Install Node.js (pick one)
+- **Homebrew (macOS):** `brew install node`
+- **Official installer:** [nodejs.org](https://nodejs.org) → LTS → run installer
 
-**Option A — Homebrew (macOS, recommended)**
+**Verify:**
+
 ```bash
-brew install node
-```
-
-**Option B — Official installer**  
-Download from [nodejs.org](https://nodejs.org) → pick the **LTS** version → run the installer.
-
-**Verify it worked:**
-```bash
-node -v   # should print v18 or higher
-npm -v    # should print a version number
+node -v   # v18 or higher
+npm -v
 ```
 
 ---
@@ -32,36 +26,79 @@ npm -v    # should print a version number
 ## Setup
 
 ```bash
-# 1. Clone the starter branch 
+# Clone the repo
 git clone git@github.com:kerry-okpere/customer-service-mcp.git
 cd customer-service-mcp
 
-# 2. Install dependencies
+# Install dependencies
 npm install
-
-# 3. Optionally Checkout to the final branch to view all changes
-git checkout feat/final
 ```
+
+> Optionally checkout the final branch to see the completed solution: `git checkout feat/final`
 
 ---
 
-## Run In Dev mode 
+## Connect to Claude Desktop (STDIO)
+
+> Run this **or** the VS Code option — not both at the same time.
+
+**1. Build the project**
+
+```bash
+npm run build
+```
+
+**2. Open your Claude Desktop config file**
+
+In the Claude menu bar go to **Settings → Developer tab → Edit Config** — this opens the config file in your file explorer:
+
+- **macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`
+- **Windows:** `%APPDATA%\Claude\claude_desktop_config.json`
+
+**3. Open the config file and add the server config**
+
+Replace `{username}` and `{project-folder}` with your actual path:
+
+```json
+{
+  "mcpServers": {
+    "customer-service": {
+      "command": "node",
+      "args": ["/Users/{username}/{project-folder}/build/stdio.js"]
+    }
+  }
+}
+```
+
+> **NVM users:** Claude Desktop may pick up an old Node version from your PATH. If the server fails to connect, use the absolute path to Node 18+ instead:
+> Run `which node` in your terminal (with the correct NVM version active) to get the exact path.
+> ```
+> "command": "/Users/{username}/.nvm/versions/node/{version}/bin/node"
+> ```
+
+
+**4. Restart Claude Desktop** — the tools will appear automatically.
+
+---
+
+## Connect to VS Code (HTTP)
+
+> Run this **or** the Claude Desktop option — not both at the same time.
+
+**1. Start the server**
+
 ```bash
 npm run dev
 ```
 
-The server runs at `http://localhost:3000/mcp`.
+Server runs at `http://localhost:3000/mcp`.
 
----
-
-## Connect to VS Code
-
-Add this to your VS Code `.vscode/mcp.json`:
+**2. Add to `.vscode/mcp.json`**
 
 ```json
 {
   "servers": {
-    "customer-service-mcp": {
+    "customer-service": {
       "url": "http://localhost:3000/mcp",
       "type": "http"
     }
@@ -69,7 +106,7 @@ Add this to your VS Code `.vscode/mcp.json`:
 }
 ```
 
-Then open the **Copilot Chat** panel in VS Code → the tools will appear automatically.
+Open **Copilot Chat** in VS Code — the tools will appear automatically.
 
 ---
 

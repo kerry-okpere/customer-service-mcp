@@ -17,5 +17,5 @@ export const createServer = () => {
     greeting,
   );
 
-  return server;
+  return { server };
 };
