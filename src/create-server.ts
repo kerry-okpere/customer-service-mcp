@@ -1,6 +1,24 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { GreetInput } from "./tools/types.js";
-import { greeting } from "./tools/index.js";
+import {
+  AssignAgentInput,
+  GetAgentPerformanceCardInput,
+  GreetInput,
+  VipCustomersInput,
+} from "./tools/types.js";
+import {
+  assignAgent,
+  availableAgents,
+  getAgentPerformanceCardTool,
+  greeting,
+  vipCustomers,
+} from "./tools/index.js";
+import { agentRoster } from "./resources/index.js";
+import {
+  assignBestAgentPrompt,
+  dailyBriefingPrompt,
+  explainAssignmentPrompt,
+} from "./prompts/index.js";
+import { AssignAgentPromptInput, ExplainAssignmentPromptInput } from "./prompts/types.js";
 
 export const createServer = () => {
   const server = new McpServer({

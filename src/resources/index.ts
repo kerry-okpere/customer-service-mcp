@@ -1,6 +1,5 @@
-import {
-  ReadResourceCallback,
-} from "@modelcontextprotocol/sdk/server/mcp.js";
+import { ReadResourceCallback } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { getAgentRoster } from "../lambdas.js";
 
 // Implement support://agents/roster resource callback
 

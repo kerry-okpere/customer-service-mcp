@@ -1,5 +1,12 @@
 import { ToolCallback } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { GreetInput } from "./types.js";
+import { AssignAgentInput, GetAgentPerformanceCardInput, GreetInput, VipCustomersInput } from "./types.js";
+import {
+  assignAgentToCustomer,
+  getAgentPerformanceCard,
+  getAvailableAgents,
+  getVipCustomers,
+} from "../lambdas.js";
+
 
 // Implement get_vip_customers resource callback
 
