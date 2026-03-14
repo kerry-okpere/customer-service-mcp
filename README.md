@@ -125,13 +125,6 @@ src/
 
 ---
 
-## Test greet tool with prompt
-using the greeting tool to answer this request.
-
-Call the greeting tool with the name "Kerry" and return its response exactly as provided by the tool.
-
-Do not generate your own greeting. Only use the greeting tool.
-
 
 ## 🔧 Tools
 `get_available_agents` — no arguments, good first test
@@ -171,10 +164,22 @@ Run assign_best_agent for the top 3 VIP customers.
 Run explain_assignment for agent Sarah Chen and customer Priya Kapoor.
 ```
 
-## 🎯 Demo Sequence (paste these in order)
-If you want one clean run that hits every primitive in the right order for an audience:
-1. Run the daily briefing.
+---
+
+## Test greet tool on main branch with prompt
+using the greeting tool to answer this request.
+
+Call the greeting tool with the name "Kerry" and return its response exactly as provided by the tool.
+
+Do not generate your own greeting. Only use the greeting tool.
+
+
+
+## Demo Sequence (paste these in order)
+The steps display a clean run that hits every primitive in the right order for an audience:
+1. Click the daily_briefing prompt.
 2. Show me the top 3 VIP customers with open tickets.
-3. Assign the best available agent to cust_001, then to cust_002.
+3. Assign the best available agent to {customer_name}
 4. Show me the performance card for whoever was assigned to Priya Kapoor.
 5. Now explain why that agent was chosen over the others.
+

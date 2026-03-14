@@ -64,7 +64,7 @@ export const dailyBriefingPrompt: PromptCallback<typeof DailyBriefingPromptInput
         text: [
           `You are a support operations AI. Generate the morning queue briefing.`,
           ``,
-          `1. Call get_vip_customers (top_n=5) to see everyone waiting.`,
+          `1. Call get_vip_customers (top_n=2) to see everyone waiting.`,
           `2. Call get_available_agents to see current team capacity.`,
           ``,
           `Structure your briefing as:`,
