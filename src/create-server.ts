@@ -6,19 +6,19 @@ import {
   VipCustomersInput,
 } from "./tools/types.js";
 import {
-  assignAgent,
-  availableAgents,
-  getAgentPerformanceCardTool,
+  // assignAgent,
+  // availableAgents,
+  // getAgentPerformanceCardTool,
   greeting,
-  vipCustomers,
+  // vipCustomers,
 } from "./tools/index.js";
-import { agentRoster } from "./resources/index.js";
-import {
-  assignBestAgentPrompt,
-  dailyBriefingPrompt,
-  explainAssignmentPrompt,
-} from "./prompts/index.js";
-import { AssignAgentPromptInput, ExplainAssignmentPromptInput } from "./prompts/types.js";
+// import { agentRoster } from "./resources/index.js";
+// import {
+//   assignBestAgentPrompt,
+//   dailyBriefingPrompt,
+//   explainAssignmentPrompt,
+// } from "./prompts/index.js";
+// import { AssignAgentPromptInput, ExplainAssignmentPromptInput } from "./prompts/types.js";
 
 export const createServer = () => {
   const server = new McpServer({
